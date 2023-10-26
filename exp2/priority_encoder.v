@@ -6,9 +6,10 @@ module priority_encoder(
 		
 		integer i;
 		always @(*) begin
-			if(!data)
+			if(!|data) begin
 				out_ins = 0;
 				out = 0;
+				end
 			else begin
 				out_ins = 1;
 				out = 0;
@@ -17,7 +18,7 @@ module priority_encoder(
 					if(data[i]) begin
 						out = i[2:0];
 					end
-			end
+				end
 		end	
 
 

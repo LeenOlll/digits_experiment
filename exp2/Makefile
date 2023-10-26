@@ -1,4 +1,4 @@
-TOPNAME = mux41b
+TOPNAME = top
 NXDC_FILES = top.nxdc
 INC_PATH ?=
 

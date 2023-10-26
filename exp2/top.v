@@ -1,8 +1,8 @@
 module top(
 		input [7:0] data,
 		output reg [2:0] led,
-		output reg [7:0] hex
-		output reg inst
+		output reg [7:0] hex,
+		output reg inst_led
 		);
 
 		reg [2:0] coding_result;
@@ -10,7 +10,7 @@ module top(
 		priority_encoder pe(
 				.data(data),
 				.out(coding_result),
-				.out_ins(inst)
+				.out_ins(inst_led)
 				);
 
 		decoder38 de(
