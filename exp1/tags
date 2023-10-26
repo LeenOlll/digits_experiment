@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BIN	Makefile	/^BIN = $(BUILD_DIR)\/$(TOPNAME)$/;"	m
+BUILD_DIR	Makefile	/^BUILD_DIR = .\/build$/;"	m
+CSRCS	Makefile	/^CSRCS = $(shell find $(abspath .) -name "*.c" -or -name "*.cc" -or -name "*.cpp")$/;"	m
+INCFLAGS	Makefile	/^INCFLAGS = $(addprefix -I, $(INC_PATH))$/;"	m
+INC_PATH	Makefile	/^INC_PATH ?=$/;"	m
+MuxKey	mux-template.v	/^module MuxKey #(NR_KEY = 2, KEY_LEN = 1, DATA_LEN = 1) ($/;"	m
+MuxKeyInternal	mux-template.v	/^module MuxKeyInternal #(NR_KEY = 2, KEY_LEN = 1, DATA_LEN = 1, HAS_DEFAULT = 0) ($/;"	m
+MuxKeyWithDefault	mux-template.v	/^module MuxKeyWithDefault #(NR_KEY = 2, KEY_LEN = 1, DATA_LEN = 1) ($/;"	m
+NXDC_FILES	Makefile	/^NXDC_FILES = top.nxdc$/;"	m
+OBJ_DIR	Makefile	/^OBJ_DIR = $(BUILD_DIR)\/obj_dir$/;"	m
+SRC_AUTO_BIND	Makefile	/^SRC_AUTO_BIND = $(abspath $(BUILD_DIR)\/auto_bind.cpp)$/;"	m
+TOPNAME	Makefile	/^TOPNAME = mux41b$/;"	m
+VERILATOR	Makefile	/^VERILATOR = verilator$/;"	m
+VSRCS	Makefile	/^VSRCS = $(shell find . -name "*.v")$/;"	m
+X	mux41b.v	/^		input [1:0] X [3:0],$/;"	p
+data_list	mux-template.v	/^  wire [DATA_LEN-1:0] data_list [NR_KEY-1:0];$/;"	n
+default_out	mux-template.v	/^  input [DATA_LEN-1:0] default_out,$/;"	p
+hit	mux-template.v	/^  reg hit;$/;"	r
+i	mux-template.v	/^  integer i;$/;"	r
+input	mux-template.v	/^  input [DATA_LEN-1:0] default_out,$/;"	p
+input	mux-template.v	/^  input [KEY_LEN-1:0] key,$/;"	p
+input	mux-template.v	/^  input [NR_KEY*(KEY_LEN + DATA_LEN)-1:0] lut$/;"	p
+input	mux41b.v	/^		input [1:0] Y,$/;"	p
+key	mux-template.v	/^  input [KEY_LEN-1:0] key,$/;"	p
+key_list	mux-template.v	/^  wire [KEY_LEN-1:0] key_list [NR_KEY-1:0];$/;"	n
+lut	mux-template.v	/^  input [NR_KEY*(KEY_LEN + DATA_LEN)-1:0] lut$/;"	p
+lut_out	mux-template.v	/^  reg [DATA_LEN-1 : 0] lut_out;$/;"	r
+main	main.cpp	/^int main(){$/;"	f
+mux41b	mux41b.v	/^module mux41b($/;"	m
+out	mux-template.v	/^  output [DATA_LEN-1:0] out,$/;"	p
+pair_list	mux-template.v	/^  wire [PAIR_LEN-1:0] pair_list [NR_KEY-1:0];$/;"	n
+reg	mux-template.v	/^  output reg [DATA_LEN-1:0] out,$/;"	p
+reg	mux41b.v	/^		output reg [1:0] F$/;"	p
