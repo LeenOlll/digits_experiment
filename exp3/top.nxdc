@@ -1,0 +1,14 @@
+top=alu
+
+A (SW3, SW2, SW1, SW0)
+B (SW7, SW6, SW5, SW4)
+big_up_mode BTNU
+big_down_mode BTND
+small_down_mode BTNL
+small_up_mode BTNR
+
+mode (LD15, LD14, LD13)
+result (LD3, LD2, LD1, LD0)
+of LD4
+zf LD5
+cf LD6
