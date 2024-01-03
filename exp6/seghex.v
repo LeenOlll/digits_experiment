@@ -4,7 +4,7 @@ module seghex(
 		output reg [7:0] hex
 		);
 
-		always @(clk) begin
+		always @(posedge clk) begin
 			case (in)
 				4'd0: hex = 8'b10000001;
 				4'd1: hex = 8'b11001111;
