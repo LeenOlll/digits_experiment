@@ -3,6 +3,8 @@
 #include <nvboard.h>
 #include <verilated_vcd_c.h>
 
+#define trace_mode
+
 vluint64_t sim_time = 0;
 
 void nvboard_bind_all_pins(Vtop *dut);
@@ -30,7 +32,7 @@ int main(){
 
 	while(1){
 		cycle(dut);
-#ifdef trace
+#ifdef trace_mode
 		m_trace->dump(sim_time);
 #endif
         sim_time++;
