@@ -1,0 +1,47 @@
+#include <verilated.h>
+#include "Vtop.h"
+#include <nvboard.h>
+#include <verilated_vcd_c.h>
+
+Vtop *dut = new Vtop;
+VerilatedContext *contextp = NULL;
+VerilatedVcdC *m_trace = NULL;
+
+void nvboard_bind_all_pins(Vtop *dut);
+
+void cycle(){
+	dut->clk ^= 1;
+	dut->eval();
+	contextp->timeInc(10);
+	m_trace->dump(contextp->time());
+}
+
+void init(){
+	contextp = new VerilatedContext;
+	m_trace = new VerilatedVcdC;
+	contextp->traceEverOn(true);
+	dut->trace(m_trace, 5);
+	m_trace->open("waveform.vcd");
+}
+
+int main(){
+	init();
+	Verilated::traceEverOn(true);
+	
+	nvboard_bind_all_pins(dut);
+	nvboard_init();
+
+	dut->clrn = 0;
+	cycle();
+	dut->clrn = 1;
+
+	while(1){
+		dut->eval();
+		nvboard_update();
+		cycle();
+	}
+
+	delete dut;
+	nvboard_quit();
+	return 0;
+}

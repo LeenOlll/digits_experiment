@@ -44,6 +44,10 @@ run: $(BIN) 		#执行生成的二进制文件
 	@$^
 
 clean:
-	rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)
+	@rm waveform.vcd
+
+gtk:
+	@gtkwave waveform.vcd
 
 .PHONY: default all clean run

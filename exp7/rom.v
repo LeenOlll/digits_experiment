@@ -41,7 +41,8 @@ always@ (*) begin
         8'h3d: ascii_value = 8'h36;
         8'h3e: ascii_value = 8'h37;
         8'h46: ascii_value = 8'h38;
-        default: ascii_value = 8'h00;
+        8'h00: ascii_value = 8'h00;
+		default: ascii_value = 8'h00;
     endcase
 end
 
