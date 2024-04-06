@@ -1,4 +1,4 @@
-top=alu
+top=alu_go
 
 A (SW3, SW2, SW1, SW0)
 B (SW7, SW6, SW5, SW4)
@@ -9,6 +9,6 @@ small_up_mode BTNR
 
 mode (LD15, LD14, LD13)
 result (LD3, LD2, LD1, LD0)
-of LD4
-zf LD5
-cf LD6
+of LD5
+zf LD6
+cf LD7

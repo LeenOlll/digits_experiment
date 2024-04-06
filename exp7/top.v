@@ -17,9 +17,9 @@ module top(
 	reg nextdata_n;
 	
 	wire [7:0] data;
-	reg [7:0] data_last;
+	reg [7:0] data_reg;
 	wire [7:0] ascii;
-	reg [1:0] ready_last;
+	reg [1:0] ready_last;		//间接记录两个clk
 	wire ready;
 
 	parameter [2:0] idle = 3'b001;
@@ -56,16 +56,16 @@ module top(
 
 	always @(posedge clk or negedge clrn) begin		//记录data
 		if(!clrn) begin
-			data_last <= 8'h00;
+			data_reg <= 8'h00;
 			nextdata_n <= 1;
 		end
 		else if (ready && !ready_last[0]) begin
 			nextdata_n <= 0;
-			data_last <= data;
+			data_reg <= data;
 		end
 		else begin
 			nextdata_n <= 1;
-			data_last <= 8'h00;
+			data_reg <= 8'h00;
 		end
 	end
 
@@ -88,7 +88,7 @@ module top(
 					if(data != key_vo) begin
 						n_state <= hold;
 						key_vo <= data;
-						data_last <= data;
+						data_reg <= data;
 					end
 					else begin
 						n_state <= idle;
@@ -103,7 +103,7 @@ module top(
 					end
 				end
 				htoi: begin
-					if(data == data_last) begin
+					if(data == data_reg) begin
 						n_state <= idle;
 						key_vo <= 8'h00;
 						count <= count + 1;

@@ -1,4 +1,4 @@
-TOPNAME = alu
+TOPNAME = alu_go
 NXDC_FILES = top.nxdc
 INC_PATH ?=
 
@@ -20,7 +20,7 @@ $(SRC_AUTO_BIND): $(NXDC_FILES)
 	python3 $(NVBOARD_HOME)/scripts/auto_pin_bind.py $^ $@
 
 # project source
-VSRCS = $(shell find . -name "*.v")
+VSRCS = $(shell find $(abspath .) -name "*.v")
 CSRCS = $(shell find $(abspath .) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
 CSRCS += $(SRC_AUTO_BIND)
 

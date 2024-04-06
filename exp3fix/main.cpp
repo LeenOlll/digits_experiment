@@ -1,13 +1,13 @@
 #include <verilated.h>
 #include <stdio.h>
 #include <iostream>
-#include <Valu.h>
+#include "Valu_go.h"
 #include <nvboard.h>
 
-void nvboard_bind_all_pins(Valu *dut);
+void nvboard_bind_all_pins(Valu_go *dut);
 
 int main(){
-	Valu *dut = new Valu;
+	Valu_go *dut = new Valu_go;
 	nvboard_bind_all_pins(dut);
 	nvboard_init();
 
