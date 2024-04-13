@@ -12,13 +12,19 @@ module alu(
 
 	wire [3:0] out_less;
         wire overflow_less;
+	wire overflow_o, carry_o, zero_o;
 
 	wire [3:0] B_Com, A_Com;
 	assign A_Com = A[3]?({A[3], ~A[2:0]} + 1'b1) : A;
 	assign B_Com = B[3]?({B[3], ~B[2:0]} + 1'b1) : B;
 
 	//有溢出时结果不显示
-	assign Result = Overflow?4'h0:result_o;
+	assign Result = result_o;
+	assign result_adder = overflow_o?4'h0:result_adder0;
+
+	assign Overflow = (Op == 3'd0) ? overflow_o : (Op == 3'd1) ? overflow_o : 1'b0;
+	assign Carry = (Op == 3'd0) ? carry_o : (Op == 3'd1) ? carry_o : 1'b0;
+	assign Zero = (Op == 3'd0) ? zero_o : (Op == 3'd1) ? zero_o : 1'b0;
 
 	//add and sub
 	adder adder0(
@@ -26,10 +32,10 @@ module alu(
 		.b(B_Com),
 		.Cin(Op[0]),
 
-		.result(result_adder),
-		.carry(Carry),
-		.zero(Zero),
-		.overflow(Overflow)
+		.result(result_adder0),
+		.carry(carry_o),
+		.zero(zero_o),
+		.overflow(overflow_o)
 		);
 
 

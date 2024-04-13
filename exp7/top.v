@@ -69,7 +69,7 @@ module top(
 		end
 	end
 
-	always @(posedge clk or negedge clrn)begin		//延迟一周期改变状态
+	always @(posedge clk or negedge clrn)begin		
 		if (!clrn) begin 
 			c_state <= idle;
 		end

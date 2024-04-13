@@ -11,7 +11,7 @@ void cycle() {
     top->clk = !top->clk;
     top->eval();
     contextp->timeInc(10);
-    m_trace->dump(contextp->time());
+    //m_trace->dump(contextp->time());
 }
 
 void init() {

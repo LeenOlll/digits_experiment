@@ -10,7 +10,7 @@ module top(
 		priority_encoder pe(
 				.data(data),
 				.out(coding_result),
-				.out_ins(inst_led)
+				.out_ins(inst_led)	//指示
 				);
 
 		decoder38 de(
